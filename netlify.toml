@@ -1,6 +1,6 @@
 [build]
   base = "apps/web"
-  publish = "apps/web/dist"
+  publish = "dist"
   command = "npm run build"
 
 [build.environment]
@@ -14,4 +14,4 @@
 [dev]
   command = "npm run dev"
   port = 5174
-  publish = "apps/web/dist"
+  publish = "dist"
