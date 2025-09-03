@@ -4,12 +4,12 @@ A voice-first AI assistant for safe, hands-free email and calendar management wh
 
 ## Features
 
-- 🎤 **Voice Commands** - Speak naturally to draft emails and create calendar events
-- 🗣️ **Smart Parsing** - AI-powered intent recognition with confidence scoring
-- 📧 **Gmail Integration** - Draft and send emails via voice commands
-- 📅 **Calendar Management** - Create events with natural language
-- 🔒 **Secure OAuth** - Server-side token management for Google services
-- 🌙 **Car-Friendly UI** - High contrast, large touch targets, voice feedback
+- **Voice Commands** - Speak naturally to draft emails and create calendar events
+- **Smart Parsing** - AI-powered intent recognition with confidence scoring
+- **Gmail Integration** - Draft and send emails via voice commands
+- **Calendar Management** - Create events with natural language
+- **Secure OAuth** - Server-side token management for Google services
+- **Car-Friendly UI** - High contrast, large touch targets, voice feedback
 
 ## Tech Stack
 
