@@ -1,0 +1,33 @@
+{
+  "name": "drive-mode-ai-web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "lint": "eslint . --ext .ts,.tsx",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.12",
+    "@vitejs/plugin-react": "^5.0.2",
+    "framer-motion": "latest",
+    "lucide-react": "latest",
+    "openai": "^5.16.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "shadcn-ui": "latest",
+    "tailwindcss": "^4.1.12",
+    "zustand": "^4.3.8"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.12",
+    "@types/react-dom": "^19.1.9",
+    "eslint": "latest",
+    "prettier": "latest",
+    "typescript": "latest",
+    "vite": "latest",
+    "vitest": "latest"
+  }
+}

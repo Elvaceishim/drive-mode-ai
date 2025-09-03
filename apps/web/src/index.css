@@ -1,0 +1,269 @@
+@import "tailwindcss";
+
+/* Custom styles for Drive Mode AI */
+body {
+  background: #111;
+  color: #fff;
+  font-family: system-ui, -apple-system, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Custom button styles */
+button {
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  font-family: inherit;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Animation for voice listening indicators */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Animated gradient effects */
+@keyframes aliveGradient {
+  0% {
+    transform: rotate(0deg) scale(1);
+    filter: hue-rotate(0deg);
+  }
+  25% {
+    transform: rotate(90deg) scale(1.03);
+    filter: hue-rotate(90deg);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.05);
+    filter: hue-rotate(180deg);
+  }
+  75% {
+    transform: rotate(270deg) scale(1.03);
+    filter: hue-rotate(270deg);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+    filter: hue-rotate(360deg);
+  }
+}
+
+@keyframes gentleGradient {
+  0% {
+    transform: rotate(0deg);
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    filter: hue-rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+    filter: hue-rotate(360deg);
+  }
+}
+
+@keyframes borderSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: rotate(0deg) scale(1);
+    opacity: 0.2;
+  }
+  25% {
+    opacity: 0.4;
+  }
+  50% {
+    transform: rotate(180deg) scale(1.05);
+    opacity: 0.6;
+  }
+  75% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+    opacity: 0.2;
+  }
+}
+
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  33% {
+    transform: scale(1.05);
+    opacity: 0.5;
+  }
+  66% {
+    transform: scale(1.08);
+    opacity: 0.6;
+  }
+}
+
+@keyframes gentleBreathe {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.2;
+  }
+  50% {
+    transform: scale(1.02);
+    opacity: 0.4;
+  }
+}
+
+/* Legacy smoky animations (keeping for reference) */
+@keyframes smokyPulse {
+  0% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.2;
+  }
+  33% {
+    transform: scale(1.08) rotate(120deg);
+    opacity: 0.4;
+  }
+  66% {
+    transform: scale(1.15) rotate(240deg);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1) rotate(360deg);
+    opacity: 0.2;
+  }
+}
+
+@keyframes coreBreath {
+  0% {
+    transform: scale(1);
+    box-shadow: 
+      0 0 20px rgba(239, 68, 68, 0.4),
+      0 0 40px rgba(236, 72, 153, 0.3),
+      inset 0 0 20px rgba(255, 255, 255, 0.1);
+  }
+  50% {
+    transform: scale(1.08);
+    box-shadow: 
+      0 0 30px rgba(239, 68, 68, 0.7),
+      0 0 60px rgba(236, 72, 153, 0.5),
+      inset 0 0 30px rgba(255, 255, 255, 0.2);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 
+      0 0 20px rgba(239, 68, 68, 0.4),
+      0 0 40px rgba(236, 72, 153, 0.3),
+      inset 0 0 20px rgba(255, 255, 255, 0.1);
+  }
+}
+
+@keyframes innerGlow {
+  0% {
+    opacity: 0.3;
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.15) rotate(180deg);
+  }
+  100% {
+    opacity: 0.3;
+    transform: scale(1) rotate(360deg);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translate(-50%, -50%) translateY(0px) rotate(0deg) scale(1);
+    opacity: 0.8;
+  }
+  25% {
+    transform: translate(-50%, -50%) translateY(-15px) rotate(90deg) scale(1.1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translate(-50%, -50%) translateY(-8px) rotate(180deg) scale(0.9);
+    opacity: 0.8;
+  }
+  75% {
+    transform: translate(-50%, -50%) translateY(10px) rotate(270deg) scale(1.05);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translate(-50%, -50%) translateY(0px) rotate(360deg) scale(1);
+    opacity: 0.8;
+  }
+}
+
+/* Enhanced hover effects */
+@keyframes gentleHover {
+  0% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-3px) scale(1.02);
+  }
+  100% {
+    transform: translateY(0px) scale(1);
+  }
+}
+
+/* Flowing energy animation */
+@keyframes energyFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Particle birth animation */
+@keyframes particleBirth {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.8;
+  }
+}
