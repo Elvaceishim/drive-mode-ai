@@ -74,6 +74,21 @@ export const googleAuth = {
     const { credentials } = await oauth2Client.refreshAccessToken();
     return credentials;
   },
+
+  getUserInfo: async (accessToken: string) => {
+    const oauth2Client = getOAuth2Client();
+    oauth2Client.setCredentials({ access_token: accessToken });
+    
+    const oauth2 = google.oauth2({ version: 'v2', auth: oauth2Client });
+    const { data } = await oauth2.userinfo.get();
+    
+    return {
+      id: data.id,
+      email: data.email,
+      name: data.name,
+      picture: data.picture,
+    };
+  },
 };
 
 export const gmailAPI = {

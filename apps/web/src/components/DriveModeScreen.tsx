@@ -6,8 +6,10 @@ import ConfirmSheet from './ConfirmSheet';
 import TaskLogDrawer from './TaskLogDrawer';
 import Waveform from './Waveform';
 import { useVoice } from '../store/useVoice';
+import { useSession } from '../store/useSession';
 
 const DriveModeScreen: React.FC = () => {
+  const { user, logout } = useSession();
   const { 
     isRecording, 
     transcript, 
@@ -44,6 +46,29 @@ const DriveModeScreen: React.FC = () => {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white p-5 gap-6">
+      {/* User header */}
+      <div className="w-full max-w-md flex justify-between items-center mb-4">
+        <div className="flex items-center gap-3">
+          {user?.picture && (
+            <img 
+              src={user.picture} 
+              alt="Profile" 
+              className="w-8 h-8 rounded-full"
+            />
+          )}
+          <div>
+            <p className="text-sm font-medium">{user?.name || user?.email}</p>
+            <p className="text-xs text-gray-400">Drive Mode Active</p>
+          </div>
+        </div>
+        <button
+          onClick={logout}
+          className="px-3 py-1 bg-red-600 hover:bg-red-700 rounded text-sm transition-colors"
+        >
+          Logout
+        </button>
+      </div>
+
       <div className="text-center">
         <h1 className="text-4xl font-bold mb-2">Drive Mode AI</h1>
         <p className="text-gray-400 mb-4">Press to speak your command</p>

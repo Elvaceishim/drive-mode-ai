@@ -13,7 +13,7 @@ const AuthGate: React.FC = () => {
         <p className="text-gray-400 mb-8 max-w-md">
           Voice-first AI assistant for safe, hands-free email and calendar management while driving.
         </p>
-        <div className="space-y-4">
+        <div className="space-y-4 flex flex-col items-center">
           <button 
             onClick={handleGoogleSignIn}
             className="flex items-center justify-center gap-3 px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg text-white font-medium transition-colors"
@@ -26,7 +26,7 @@ const AuthGate: React.FC = () => {
             </svg>
             Sign in with Google
           </button>
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-gray-500 text-center max-w-xs">
             Connect your Gmail and Calendar to use voice commands
           </p>
         </div>

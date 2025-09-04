@@ -46,16 +46,26 @@ router.get('/callback', async (req, res) => {
     // Exchange code for tokens
     const tokens = await googleAuth.exchangeCodeForTokens(code as string);
     
+    // Get user info from Google
+    const userInfo = await googleAuth.getUserInfo(tokens.access_token);
+    
     // TODO: Create/get user ID from Supabase
-    const userId = 'temp-user-id'; // In real app, create user session here
+    const userId = userInfo.id || 'temp-user-id'; // Use Google ID as user ID
     
     // Store tokens securely
     await googleAuth.storeTokens(userId, tokens);
     
-    log('OAuth tokens stored', { userId });
+    log('OAuth tokens stored', { userId, email: userInfo.email });
 
-    // Redirect to frontend with success
-    res.redirect(`${process.env.GOOGLE_REDIRECT_URI?.replace('/oauth/callback', '')}?auth=success`);
+    // Redirect to frontend with user info
+    const frontendUrl = process.env.GOOGLE_REDIRECT_URI?.replace('/auth/callback', '') || 'http://localhost:5174';
+    const redirectUrl = new URL(frontendUrl);
+    redirectUrl.searchParams.set('user_id', userId);
+    redirectUrl.searchParams.set('email', userInfo.email);
+    if (userInfo.name) redirectUrl.searchParams.set('name', userInfo.name);
+    if (userInfo.picture) redirectUrl.searchParams.set('picture', userInfo.picture);
+    
+    res.redirect(redirectUrl.toString());
   } catch (error) {
     log('OAuth callback error', error);
     res.status(500).send('OAuth callback failed');
